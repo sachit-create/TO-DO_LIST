@@ -1,2 +1,0 @@
-1,wash hands,0
-2,watch tv,0
