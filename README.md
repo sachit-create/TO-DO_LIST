@@ -1,88 +1,119 @@
 # TO-DO LIST
 
-A small, cross-platform console To‑Do list application written in C++ — now with a modern, user-friendly console UI.
+A modern C++ command-line to-do list application designed for simple task management with persistent storage. It lets users add, remove, complete, and review tasks while saving progress to a local file.
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Language](https://img.shields.io/badge/language-C++-00599C.svg)](https://isocpp.org/)
+<p align="center">
+  <img src="https://img.shields.io/badge/C%2B%2B-17-00599C?logo=c%2B%2B&logoColor=white" alt="C++ 17" />
+  <img src="https://img.shields.io/badge/Build-CMake-064F8C?logo=cmake&logoColor=white" alt="CMake" />
+  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-4A4A4A?logo=windows&logoColor=white" alt="Cross-platform" />
+</p>
 
-## Demo
+## Overview
 
-> Replace `assets/demo.gif` with a short screen recording or screenshot for the demo.
-
-![Demo placeholder](assets/demo.gif)
-
-## Why this project?
-
-- Lightweight and easy to build with a single g++ command.
-- Simple file-based persistence (`data/tasks.txt`).
-- Good for learning C++ classes, file I/O, and basic CLI UX polish.
+This project is a lightweight CLI-based task manager built using C++ and the Standard Library. It is ideal for beginners learning object-oriented programming, file I/O, and clean console application design.
 
 ## Features
 
-- Add, remove, view and mark tasks as completed
-- Tasks persisted to `data/tasks.txt`
-- Clean, colored console UI for improved usability
-- Minimal dependencies — plain C++ standard library
+- Add new tasks with a title
+- Remove tasks by ID
+- Mark tasks as completed
+- View all current tasks
+- Save and reload task data from `data/tasks.txt`
+- Simple, colored console interface
+- Cross-platform build support
 
-## Quick start
+## Project Structure
 
-1. Clone:
-   ```bash
-   git clone https://github.com/sachit-create/TO-DO_LIST.git
-   ```
-2. Build (example with g++):
-   ```bash
-   g++ -std=c++17 -I include src/*.cpp -o todo_list
-   ```
-3. Run:
-   ```bash
-   ./todo_list
-   ```
-4. Tasks are saved to `data/tasks.txt` when you choose Save and Exit.
-
-## Build notes
-
-- Tested with g++ (GCC) on Linux and MinGW/Cygwin on Windows.
-- No external libraries required.
-- If you see color codes in Windows terminals, use a modern terminal emulator (Windows Terminal) or remove color escape codes.
-
-## Repository layout
-
-- `include/` — header files (Task and Todo declarations)
-- `src/` — implementation and CLI entrypoint (`main.cpp`)
-- `data/` — tasks storage (`tasks.txt`)
-- `LICENSE` — project license
-
-## Data format
-
-Each line in `data/tasks.txt` is a comma-separated record:
-
+```text
+TO-DO_LIST/
+├── CMakeLists.txt
+├── LICENSE
+├── README.md
+├── data/
+│   └── tasks.txt
+├── include/
+│   ├── task.h
+│   └── todo.h
+├── src/
+│   ├── main.cpp
+│   ├── task.cpp
+│   └── todo.cpp
+└── todo_list.exe
 ```
+
+## Tech Stack
+
+- C++17
+- CMake
+- Standard Library
+- File-based persistence
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/sachit-create/TO-DO_LIST.git
+cd TO-DO_LIST
+```
+
+### 2. Build with CMake
+
+```bash
+cmake -S . -B build
+cmake --build build
+```
+
+### 3. Run the app
+
+```bash
+./build/todo_list
+```
+
+## Data Storage
+
+Tasks are stored in a text file at:
+
+```text
+data/tasks.txt
+```
+
+Each line follows this format:
+
+```text
 id,title,completed
 ```
 
 Example:
 
-```
+```text
 1,Buy groceries,0
+2,Prepare for exam,1
 ```
 
-## Contributing
+## How It Works
 
-Contributions are welcome. To help:
-- Open an issue for bugs or feature requests
-- Fork the repo, make changes, then open a PR with a clear description
+The app uses:
 
-## Ideas to improve
+- a `Task` class to represent each task
+- a `Todo` class to manage the task list
+- file read/write logic for persistence
+- a terminal menu for user interaction
 
-- Add sorting and filtering (by status)
-- Add colored, columnar task output (status, id, title)
-- Add unit tests and CI (GitHub Actions)
-- Add a small GUI (Qt or ImGui) or a web frontend
+## Build Notes
+
+- Works with modern GCC/Clang toolchains
+- Compatible with Windows and Linux terminals
+- No external library dependencies required
 
 ## License
 
-MIT — see LICENSE file.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
+## Contributing
 
-Maintained by sachit-create — thanks for checking the project out!
+Pull requests and improvements are welcome. If you want to add features such as sorting, filtering, or task editing, feel free to contribute.
+
+---
+
+Built as a practical C++ project for learning task management, persistence, and CLI design.
