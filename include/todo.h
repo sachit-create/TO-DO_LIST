@@ -2,11 +2,12 @@
 #define TODO_H
 
 #include <vector>
+#include <string>
 #include "task.h"
 
 class Todo {
 private:
-    std::vector<Task> tasks;  // List of tasks
+    std::vector<Task> tasks;
 
 public:
     void addTask(const std::string& title);
